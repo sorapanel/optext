@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OpText</title>
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    {% load static %}
+    <style>
+        @font-face{
+            font-family: 'title-letter';
+            src: url("{% static 'BebasNeue-Regular.ttf' %}") format('truetype');
+        }
+        .title{
+            font-family: 'title-letter', sans-serif;
+            font-size: 100px;
+            padding-top: 100px;
+            text-align: center;
+            color: rgb(84, 84, 84);
+        }
+        /* body{
+            background-image: url("{% static 'background.jpg' %}");
+            background-repeat: no-repeat;
+            background-position: right;
+        } */
+        p{
+            text-align: center;
+            font-size: 20px;
+        }
+    </style>
+</head>
+<body>
+    <h1 class="title">OpText</h1>
+    <p>OpTextは文章を最適化することを目的としたwebアプリです。<br>主に二つの機能で構成されています。</p>
+    <br>
+    <p>一つ目はテキスト校正機能です。この機能は文章を入力していただき、<br>入力された文章のおかしな点を指摘して修正例を示すことができる機能です。</p>
+    <p><a href="{% url 'p_main' %}" class="btn btn-lg btn-outline-dark">テキスト校正</a></p>
+    <br>
+    <p>二つ目はテキスト要約機能です。この機能は文章を入力すると、<br>指定した文字数の範囲内で要約を行います。</p>
+    <p><a href="{% url 's_main' %}" class="btn btn-lg btn-outline-dark">テキスト要約</a></p>
+
+    <!-- Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.6.0/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>

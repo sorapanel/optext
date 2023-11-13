@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>テキスト要約</title>
+    <style>
+        body{
+            padding-top: 50px;
+        }
+        p{
+            text-align: center;
+            font-size: 20px;
+        }
+        div{
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .letter-count{
+            flex-direction: column;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        textarea{
+            resize: none;
+        }
+    </style>
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+<body>  
+    <p>テキスト要約</p>
+    <br>
+    <form method="post">
+        {% csrf_token %}
+        <div class="letter-count">
+            <p>要約結果の文字数</p>
+            <p><input type="radio" name="count" value="200" checked>200文字未満
+            <input type="radio" name="count" value="400">400文字未満
+            <input type="radio" name="count" value="600">600文字未満
+            <input type="radio" name="count" value="800">800文字未満</p>
+        </div>
+        <br>
+        <div>
+            <textarea name="prevtext"  cols="100" rows="5" placeholder="要約したい文章を入力してください。"></textarea>
+        </div>
+        <br>
+        <p><button type="submit" class="btn btn-lg btn-outline-dark">要約する</button></p>
+    </form>
+    <br>
+    {% if status == 0 %}
+    <p>入力なし</p>
+    {% elif status == 1 %}
+    <p>入力された文章：</p>
+    <p>{{ input }}</p>
+    <p>要約された文章：</p>
+    <p>
+    {% for str in output %}
+    {{ str }}
+    {% endfor %}
+    </p>
+    {% elif status == 2 %}
+    <p>異常終了</p>
+    {% for str in output %}
+    <p>{{ str }}</p>
+    {% endfor %}
+    {% endif %}
+    <!-- Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.6.0/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>
