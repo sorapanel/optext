@@ -26,6 +26,12 @@
         textarea{
             resize: none;
         }
+        .note{
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
     </style>
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
@@ -67,6 +73,13 @@
     <p>{{ str }}</p>
     {% endfor %}
     {% endif %}
+    <div class="note">
+        <p style="font-size: 15px;">※注意事項</p>
+        <ul style="font-size: 10px;">
+            <li>要約できる1文の最大文字数は200文字、且つ最大文章数は10です。</li>
+            <li>文章の終わりには必ず「。」をつけてください。（そうしないと要約できません。）</li>
+        </ul>
+    </div>
     <!-- Bootstrap JS -->
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.6.0/dist/umd/popper.min.js"></script>
